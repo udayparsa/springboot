@@ -1,23 +1,25 @@
 import logo from './logo.svg';
 import './App.css';
-
+import SignUp from './ui/SignUp';
+import SignIn from './ui/SignIn';
+import ResponsiveAppBar from './ui/ResponsiveAppBar';
 function App() {
+  function Page(){
+    return (
+      <>
+       <ResponsiveAppBar/>
+      </>
+    );
+  }
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <p>FEEDBACK MANAGEMENT SYSTEM</p>
       </header>
+      <div className='App-body'>
+        <Page/>
+      </div>
     </div>
   );
 }
