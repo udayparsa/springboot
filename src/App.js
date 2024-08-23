@@ -6,9 +6,11 @@ import ResponsiveAppBar from './ui/ResponsiveAppBar';
 function App() {
   function Page(){
     return (
-      <>
+      <div>
        <ResponsiveAppBar/>
-      </>
+       <SignIn/>
+       <SignUp/>
+      </div>
     );
   }
   return (
