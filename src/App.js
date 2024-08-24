@@ -3,15 +3,25 @@ import './App.css';
 import SignUp from './ui/SignUp';
 import SignIn from './ui/SignIn';
 import ResponsiveAppBar from './ui/ResponsiveAppBar';
-function App() {
+
+
+
+
+
+
+
+
+
+
+
+function App({store}) {
   function Page(){
-    return (
-      <div>
-       <ResponsiveAppBar/>
-       <SignIn/>
-       <SignUp/>
-      </div>
-    );
+    switch(store.getState()){
+      case "Signin":
+        return ( <div> <ResponsiveAppBar store={store}/> <SignIn/> </div>)
+      case "Signup":
+        return ( <div> <ResponsiveAppBar store={store}/><SignUp/></div>)  
+     }
   }
   return (
     <div className="App">

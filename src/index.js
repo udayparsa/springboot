@@ -3,13 +3,24 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { createStore } from 'redux';
+import RouteReducer from './ui/reducers/RouteReducer';
+
+
+const store=createStore(RouteReducer)
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+const renderapp = () => root.render(
   <React.StrictMode>
-    <App />
+    <App store={store} />
   </React.StrictMode>
 );
+
+
+renderapp();
+store.subscribe(renderapp)
+
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
