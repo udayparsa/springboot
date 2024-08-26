@@ -12,6 +12,11 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+import axios from 'axios';
+
+
 
 function Copyright(props) {
   return (
@@ -32,9 +37,19 @@ export default function SignUp() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
+      name:data.get('name'),
+      role:data.get('role'),
       email: data.get('email'),
       password: data.get('password'),
     });
+    axios.post("http://localhost:8080/user",{
+      name:data.get('name'),
+      role:data.get('role'),
+      email: data.get('email'),
+      password: data.get('password'),
+    }).then((res)=>{
+      console.log(res.data)
+    })
   };
 
   return (
@@ -60,23 +75,27 @@ export default function SignUp() {
               <Grid item xs={12} sm={6}>
                 <TextField
                   autoComplete="given-name"
-                  name="firstName"
+                  name="name"
                   required
                   fullWidth
-                  id="firstName"
-                  label="First Name"
+                  id="name"
+                  label="Name"
                   autoFocus
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
-                <TextField
-                  required
-                  fullWidth
-                  id="lastName"
-                  label="Last Name"
-                  name="lastName"
-                  autoComplete="family-name"
-                />
+              <Select
+              fullWidth
+              labelId="role"
+              id="role"
+              name='role'
+              defaultValue={0}
+              label="Role"
+              >
+              <MenuItem value={1}>Admin</MenuItem>
+              <MenuItem value={2}>User</MenuItem>
+              <MenuItem value={0}>Guest</MenuItem>
+              </Select>
               </Grid>
               <Grid item xs={12}>
                 <TextField
