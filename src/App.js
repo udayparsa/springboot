@@ -3,13 +3,7 @@ import './App.css';
 import SignUp from './ui/SignUp';
 import SignIn from './ui/SignIn';
 import ResponsiveAppBar from './ui/ResponsiveAppBar';
-
-
-
-
-
-
-
+import User from './ui/User';
 
 
 
@@ -21,6 +15,8 @@ function App({store}) {
         return ( <div> <ResponsiveAppBar store={store}/> <SignIn/> </div>)
       case "Signup":
         return ( <div> <ResponsiveAppBar store={store}/><SignUp/></div>)  
+      case "User":
+        return (<div><ResponsiveAppBar store={store}/><User/></div>)
      }
   }
   return (
