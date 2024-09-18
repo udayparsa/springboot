@@ -16,8 +16,6 @@ import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import axios from 'axios';
 
-
-
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -31,25 +29,28 @@ function Copyright(props) {
   );
 }
 
+// TODO remove, this demo shouldn't need to reset the theme.
+
 const defaultTheme = createTheme();
+
 export default function SignUp() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
-      name:data.get('name'),
-      role:data.get('role'),
+      name: data.get('name'),
+      role: data.get('role'),
       email: data.get('email'),
       password: data.get('password'),
     });
-    axios.post("http://localhost:8080/user",{
-      name:data.get('name'),
-      role:data.get('role'),
+    axios.post("http://localhost:8080/user", {
+      name: data.get('name'),
+      role: data.get('role'),
       email: data.get('email'),
-      password: data.get('password'),
+      password: data.get('password')
     }).then((res)=>{
       console.log(res.data)
-    })
+    });
   };
 
   return (
@@ -85,16 +86,16 @@ export default function SignUp() {
               </Grid>
               <Grid item xs={12} sm={6}>
               <Select
-              fullWidth
-              labelId="role"
-              id="role"
-              name='role'
-              defaultValue={0}
-              label="Role"
+                fullWidth
+                labelId="role"
+                id="role"
+                name="role"
+                defaultValue={0}
+                label="Role"
               >
-              <MenuItem value={1}>Admin</MenuItem>
-              <MenuItem value={2}>User</MenuItem>
-              <MenuItem value={0}>Guest</MenuItem>
+                <MenuItem value={1}>Admin</MenuItem>
+                <MenuItem value={2}>User</MenuItem>
+                <MenuItem value={0}>Guest</MenuItem>
               </Select>
               </Grid>
               <Grid item xs={12}>

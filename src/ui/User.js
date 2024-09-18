@@ -10,7 +10,6 @@ export default function User() {
             console.log(res.data)
         })
     }
-
     return (
         <div>
             Email: <input type="email" name="t1" />
