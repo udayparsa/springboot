@@ -15,7 +15,7 @@ import AdbIcon from '@mui/icons-material/Adb';
 
 
 
-const pages = ['Signup', 'Signin', 'User'];
+const pages = ['Signup', 'Signin', 'User','View'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function ResponsiveAppBar({store}) {

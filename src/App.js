@@ -4,8 +4,7 @@ import SignUp from './ui/SignUp';
 import SignIn from './ui/SignIn';
 import ResponsiveAppBar from './ui/ResponsiveAppBar';
 import User from './ui/User';
-
-
+import View from './ui/View';
 
 
 function App({store}) {
@@ -17,6 +16,8 @@ function App({store}) {
         return ( <div> <ResponsiveAppBar store={store}/><SignUp/></div>)  
       case "User":
         return (<div><ResponsiveAppBar store={store}/><User/></div>)
+      case "View":
+        return (<div><ResponsiveAppBar store={store}/><View/></div>)
      }
   }
   return (
