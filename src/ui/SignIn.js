@@ -12,7 +12,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
+import axios from 'axios';
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -34,10 +34,18 @@ export default function SignIn() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
+    const loginDetails = {
       email: data.get('email'),
       password: data.get('password'),
-    });
+    };
+    axios.post('http://localhost:8080/login', loginDetails)
+      .then((response) => {
+        alert(response.data); 
+      })
+      .catch((error) => {
+        console.error('There was an error logging in!', error);
+        alert('Login failed. Please try again.');
+      });
   };
 
   return (
