@@ -6,7 +6,7 @@ export default function View() {
 
 
     function handleDelete(email){
-       axios.delete("http://localhost:8080/delete",{params:{
+       axios.delete("https://jfsd-spring-hosting-production-2a1b.up.railway.app/delete",{params:{
         email:email
        }}).then((res)=>{
        alert(res.data)
@@ -26,7 +26,7 @@ export default function View() {
 
   
     function hadleUpdate(){
-      axios.put("http://localhost:8080/update",{
+      axios.put("https://jfsd-spring-hosting-production-2a1b.up.railway.app/update",{
         name: document.getElementsByName("e_name")[0].value,
         role: document.getElementsByName("e_role")[0].value,
         email: document.getElementsByName("e_email")[0].value,
@@ -42,7 +42,7 @@ export default function View() {
   //rendering
   useEffect(() => {
     if (result === null) {
-      axios.get("http://localhost:8080/allusers", {})
+      axios.get("https://jfsd-spring-hosting-production-2a1b.up.railway.app/allusers", {})
         .then((res) => {
           setResult(res.data)
         })
