@@ -38,7 +38,7 @@ export default function SignIn() {
       email: data.get('email'),
       password: data.get('password'),
     };
-    axios.post('http://localhost:8080/login', loginDetails)
+    axios.post('https://jfsd-spring-hosting-production-2a1b.up.railway.app/login', loginDetails)
       .then((response) => {
         alert(response.data); 
       })
